@@ -1,5 +1,13 @@
 
 <div class="container">
+
+
+
+<% @posts.each do |post| %>
+    <%= post.title %>
+    <%= link_to "View", user_post_path(@user, post)%>
+
+<% end %>
     <div class="d-flex flex-md-row flex-md-wrap justify-content-center">
 
         <div class="col-md-3 d-flex justify-content-center">
