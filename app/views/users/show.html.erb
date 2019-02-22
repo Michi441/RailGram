@@ -1,6 +1,42 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="container">
+    <div class="d-flex flex-md-row flex-md-wrap justify-content-center">
+
+        <div class="col-md-3 d-flex justify-content-center">
+        
+            <%= image_tag("new_york.jpg", class: 'rounded-circle', style: "width: 130px; height: 130px;") %>
+        </div>
+
+
+        <div class="col-md-4 d-flex flex-row flex-wrap justify-content-start align-items-start">
+            <div class="d-inline-flex flex-wrap align-items-baseline">
+                <h5 class="mr-3"><%= @user.email %></h5>
+
+                <button class="btn btn-primary btn-sm">Follow</button>
+            </div>
 
 
 
-<%= @user.id %>
+
+            <div class="d-inline-flex flex-wrap pt-3 align-items-center">
+            
+                <p class="mr-3">Posts: 0</p>
+                <p class="mr-3">Followers: 0</p>
+                <p class="mr-3">Following: 0</p>
+
+            </div>
+
+            
+
+            <hr>
+        
+        </div>
+
+        
+        
+    
+    </div>
+
+</div>
+
+
