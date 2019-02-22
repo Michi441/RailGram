@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show] do
+    member do
+      get :follow
+      get :unfollow
+    end
     resources :posts
   end
 

@@ -20,8 +20,15 @@
                 <div class="col-lg-4">
                     <div class="d-inline-flex align-items-baseline">
                         <p class="mr-3"><%= post.user.username %></p>
-                        <a href="">Follow</a>
-                    </div>
+
+                        <% if current_user.following?(post.user) %>
+                           <%= link_to "Unfollow", unfollow_user_path, class: 'btn btn-primary btn-sm'%>
+
+                        <% else %>
+                            <%= link_to "Follow", follow_user_path, class: 'btn btn-primary btn-sm'%>
+
+
+                        <% end %>                    </div>
 
                     <hr>
 

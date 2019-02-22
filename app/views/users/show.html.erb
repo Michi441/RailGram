@@ -5,11 +5,7 @@
     </div>
 
 
-<% @posts.each do |post| %>
-    <%= post.title %>
-    <%= link_to "View", user_post_path(@user, post)%>
 
-<% end %>
     <div class="d-flex flex-md-row flex-md-wrap justify-content-center">
 
         <div class="col-md-3 d-flex justify-content-center">
@@ -25,7 +21,15 @@
                     <% if current_user.id == @user.id %>
                         <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-outline-secondary btn-sm'%>
                     <% else %>
-                        <button class="btn btn-primary btn-sm">Follow</button>
+
+                        <% if current_user.following?(@user) %>
+                           <%= link_to "Unfollow", unfollow_user_path, class: 'btn btn-primary btn-sm'%>
+
+                        <% else %>
+                            <%= link_to "Follow", follow_user_path, class: 'btn btn-primary btn-sm'%>
+
+
+                        <% end %>
                     <% end %>
             </div>
 
@@ -34,9 +38,9 @@
 
             <div class="d-inline-flex flex-wrap pt-3 align-items-center">
             
-                <p class="mr-3">Posts: 0</p>
-                <p class="mr-3">Followers: 0</p>
-                <p class="mr-3">Following: 0</p>
+                <p class="mr-3">Posts: <%= @user.posts.count %></p>
+                <p class="mr-3">Follows: <%= @user.follow_count %></p>
+                <p class="mr-3">Followers: <%= @user.followers_count %></p>
 
             </div>
 

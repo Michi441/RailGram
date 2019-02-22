@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'devise', '~> 4.6', '>= 4.6.1'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
