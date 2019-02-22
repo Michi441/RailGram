@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'landing/signin'
 
 
+  resources :users, only: [:show]
 
 
   root 'landing#welcome'
