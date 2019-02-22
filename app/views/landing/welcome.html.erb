@@ -2,29 +2,49 @@
 
 
 
+
+
 <div class="container" style="height: 100vh;">
 
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <div class="d-flex h-100 justify-content-center flex-wrap align-items-start flex-row">
+        <div class="d-flex h-100 justify-content-center flex-wrap align-items-start flex-row">
 
-        <div class="col-lg-6 col-md-4 p-2 mt-5">
-            <%= image_tag ("iphone.png"), class: 'img-responsive', style: "width: 100%;"%>
-        </div>
-
-        <div class="col-lg-4 col-md-6 p-3 mt-3">
-            <div class="card text-center">
-                <h1>RailsGram</h1>
-                <%= render 'devise/registrations/signup'%>
+            <div class="col-lg-6 col-md-4 p-2 mt-5">
+                <%= image_tag ("iphone.png"), class: 'img-responsive', style: "width: 100%;"%>
             </div>
 
-            <div class="card text-center">
-                <p>Already have an account? Sign In</p>
+            <div class="col-lg-5 col-md-8 p-3 mt-3">
+
+                <div class="card p-3 text-center">
+
+                    <div class="card-body">
+                
+                
+                            <h1>RailsGram</h1>
+                            <h5 class="text-muted">
+                                Sign up to see photos and videos from your friends.
+                            </h5>
+                        <hr>
+                        <br>
+                            <%= render 'devise/registrations/signup'%>
+                        <br>
+                            <p class="text-muted">
+                            By signing up, you agree to our Terms . Learn how we collect, use and share your data in our Data Policy and how we use cookies and similar technology in our Cookies Policy.
+                            </p>
+                    </div>
+
+                </div>
+
+                <div class="card mt-2 text-center">
+                    <div class="card-body">
+                   
+                        <p>Already have an account? <%= link_to "Sign In", landing_signin_path %></p>
+
+                     </div>
+                </div>
+
             </div>
+
         </div>
-
-    </div>
-
-
-
 
 </div>

@@ -1,2 +1,25 @@
-<h1>Landing#signin</h1>
-<p>Find me in app/views/landing/signin.html.erb</p>
+
+
+<div class="container">
+    <div class="d-flex justify-content-center flex-row">
+
+        <div class="col-lg-5 col-md-8 col-sm-8">
+            <div class="card p-3 text-center">
+                <div class="card-body">
+                    <h1>RailsGram</h1>
+                    <hr>
+
+                    <%= render 'devise/sessions/signin'%>
+                </div>
+            </div>
+               <div class="card mt-2 text-center">
+                    <div class="card-body">
+                   
+                        <p>Already have an account? <%= link_to "Sign Up", landing_welcome_path %></p>
+
+                     </div>
+                </div>
+        </div>
+    </div>
+
+</div>
