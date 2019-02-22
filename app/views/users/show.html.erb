@@ -1,5 +1,13 @@
 
 <div class="container">
+
+
+
+<% @posts.each do |post| %>
+    <%= post.title %>
+    <%= link_to "View", user_post_path(@user, post)%>
+
+<% end %>
     <div class="d-flex flex-md-row flex-md-wrap justify-content-center">
 
         <div class="col-md-3 d-flex justify-content-center">
@@ -9,10 +17,14 @@
 
 
         <div class="col-md-4 d-flex flex-row flex-wrap justify-content-start align-items-start">
+
             <div class="d-inline-flex flex-wrap align-items-baseline">
                 <h5 class="mr-3"><%= @user.email %></h5>
-
-                <button class="btn btn-primary btn-sm">Follow</button>
+                    <% if current_user.id == @user.id %>
+                        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-outline-secondary btn-sm'%>
+                    <% else %>
+                        <button class="btn btn-primary btn-sm">Follow</button>
+                    <% end %>
             </div>
 
 
@@ -40,41 +52,17 @@
 
 
     <div class="row">
-        <div class="col-md-4 mb-3">
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
+
+        <% @posts.each do |post| %>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <%= image_tag(post.images.first, class: 'img-responsive', style: "width: 100%; height: 100%;")%>
+                </div>
             </div>
-        </div>
-          <div class="col-md-4 mb-3">
+
+        <% end %>
         
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
-            </div>
-        </div>
-          <div class="col-md-4 mb-3">
-        
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
-            </div>
-        </div>
-          <div class="col-md-4 mb-3">
-        
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-        
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-        
-            <div class="card h-100">
-                <%= image_tag("new_york.jpg", class: 'img-responsive', style: "width: 100%; height: 100%;")%>
-            </div>
-        </div>
+         
     
     </div>
 
