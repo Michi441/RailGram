@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :unfollow
     end
     resources :posts
+    resources :newsfeeds, only: [:index]
   end
 
 
