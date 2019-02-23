@@ -2,7 +2,7 @@
 
 <div class="modal col-md-12 bd-example-modal-lg fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class=" modal-dialog modal-dialog-centered modal-lg"  role="document">
-        <div class="modal-content" id="modal_content" style="height: 80vh;">
+        <div class="modal-content anyClass" id="modal_content" style="height: 80vh;">
 
             <div class="modal-body">
             <div class="row">
@@ -34,17 +34,32 @@
 
 
 
-                    <div class="col-md-12">
-                        <p><b>JohnGambo</b>: super awesome!!!</p>
-                                                <p><b>JohnGambo</b>: super awesome!!!</p>
+                    <div class="col-md-12 no-padding anyClass">
+                        <% @comments.each do |comment| %>
+                            <p><b><%= comment.user.username %></b> 
+                            <% if current_user.id == comment.user.id || current_user.id == post.user.id %>
+                            <%= link_to "x", user_post_comment_path(post.user, post, comment), method: :delete, class: 'btn btn-outline-danger btn-sm', style: "font-size: 8px;"%>: 
+                            <% end %>
+                            <%= comment.content %></p>
 
+
+                        <% end %>
+                   
                         <p><b>JohnGambo</b>: super awesome!!!</p>
 
-                        <p><b>JohnGambo</b>: super awesome!!!</p>
-
-                        <p><b>JohnGambo</b>: super awesome!!!</p>
 
                     </div>
+
+                     <%= form_for ([post.user, post, Comment.new]) do |f| %>
+                        <%= f.hidden_field :post_id, :value => post.id %>
+
+                        <div class="form-group">
+                         <%= f.text_field :content, class: 'form-control' %>
+
+                        </div>
+                        <%= f.submit "Add comment", class: 'btn btn-outline-primary btn-sm' %>
+
+                    <% end %>
                 </div>
 
 
