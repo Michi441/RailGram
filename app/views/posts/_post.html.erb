@@ -2,7 +2,7 @@
 
 <div class="modal col-md-12 bd-example-modal-lg fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class=" modal-dialog modal-dialog-centered modal-lg"  role="document">
-        <div class="modal-content anyClass" id="modal_content" style="height: 80vh;">
+        <div class="modal-content anyClass p-2" id="modal_content" style="height: 80vh;">
 
             <div class="modal-body">
             <div class="row">
@@ -21,6 +21,8 @@
                     <div class="d-inline-flex align-items-baseline">
                         <p class="mr-3"><%= post.user.username %></p>
 
+                        
+
                         <% if current_user.following?(post.user) %>
                            <%= link_to "Unfollow", unfollow_user_path, class: 'btn btn-primary btn-sm'%>
 
@@ -28,7 +30,10 @@
                             <%= link_to "Follow", follow_user_path, class: 'btn btn-primary btn-sm'%>
 
 
-                        <% end %>                    </div>
+                        <% end %>        
+                        </div>
+
+                        <p><b><%= post.description%></b></p>
 
                     <hr>
 
@@ -58,6 +63,21 @@
 
                         </div>
                         <%= f.submit "Add comment", class: 'btn btn-outline-primary btn-sm' %>
+
+                    <% end %>
+
+                    <hr>
+                    <% if current_user.voted_for?(post)%>
+                             <%= link_to unlike_user_post_path(post.user.id, post.id) do%>
+                                <%= octicon "heart", :fill => "red",:height => 32,  :class => "right left", :"aria-label" => "hi" %> <%= post.get_likes.size %>
+            
+                                <% end %>
+
+                    <% else %>
+                        <%= link_to like_user_post_path(post.user.id, post.id) do%>
+                            <%= octicon "heart", :height => 32,  :class => "right left", :"aria-label" => "hi" %> <%= post.get_likes.size %>
+            
+                         <% end %>
 
                     <% end %>
                 </div>

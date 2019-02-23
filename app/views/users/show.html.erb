@@ -14,7 +14,7 @@
         </div>
 
 
-        <div class="col-md-4 d-flex flex-row flex-wrap justify-content-start align-items-start">
+        <div class="col-lg-4 col-md-4 d-flex flex-row flex-wrap justify-content-start align-items-start">
 
             <div class="d-inline-flex flex-wrap align-items-baseline">
                 <h5 class="mr-3"><%= @user.email %></h5>
@@ -53,6 +53,17 @@
                 <p class="mr-3">Followers: <%= @user.followers_count %></p>
 
             </div>
+            
+            
+            
+            <p><%= @user.bio %></p>
+            <br>
+            <% if !@user.website.nil? %>
+            <p><%= link_to @user.website %></p>
+               
+            <% end %>
+           
+            
 
             
 
