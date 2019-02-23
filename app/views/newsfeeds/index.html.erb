@@ -1,0 +1,31 @@
+
+
+
+<div class="container">
+
+
+    <div class="d-flex justify-content-center flex-row">
+
+        <div class="col-lg-5 col-md-8 col-sm-8">
+
+        <% @activities.each do |act|%>
+        <div class="card mb-3">
+
+                <div class="card-header bg-white">
+                <%= act.owner.username %>
+                </div>
+                <%= image_tag(act.trackable.images.first, class: 'img-responsive', style: "width: 100%; height: 100%;")%>
+                <div class="card-body">
+                
+                likes 
+                </div>
+                   
+            </div>
+        <% end %>
+            
+
+        
+        </div>
+    </div>
+
+</div>
