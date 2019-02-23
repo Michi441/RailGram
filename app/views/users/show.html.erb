@@ -18,19 +18,29 @@
 
             <div class="d-inline-flex flex-wrap align-items-baseline">
                 <h5 class="mr-3"><%= @user.email %></h5>
-                    <% if current_user.id == @user.id %>
-                        <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-outline-secondary btn-sm'%>
-                    <% else %>
-
-                        <% if current_user.following?(@user) %>
-                           <%= link_to "Unfollow", unfollow_user_path, class: 'btn btn-primary btn-sm'%>
-
+                    <% if user_signed_in? %>
+                        <% if current_user.id == @user.id %>
+                            <%= link_to "Edit Profile", edit_user_registration_path, class: 'btn btn-outline-secondary btn-sm'%>
                         <% else %>
-                            <%= link_to "Follow", follow_user_path, class: 'btn btn-primary btn-sm'%>
+
+                            <% if current_user.following?(@user) %>
+                            <%= link_to "Unfollow", unfollow_user_path, class: 'btn btn-primary btn-sm'%>
+
+                            <% else %>
+                                <%= link_to "Follow", follow_user_path, class: 'btn btn-primary btn-sm'%>
 
 
+                            <% end %>
                         <% end %>
+
+                    <% else %>
+                    <%= link_to root_path do%>
+                    <button class="btn btn-primary btn-sm">Follow</button>
                     <% end %>
+
+                    <% end %>
+
+                    
             </div>
 
 
