@@ -13,6 +13,20 @@ class PostsController < ApplicationController
     
   end
 
+  def like
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    @post.liked_by(current_user)
+    redirect_to user_newsfeeds_url(current_user)
+  end
+
+  def unlike
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    @post.unliked_by(current_user)
+    redirect_to user_newsfeeds_url(current_user)
+  end
+
   # GET /posts/new
   def new
     @user = User.find(params[:user_id])

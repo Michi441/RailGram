@@ -22,9 +22,21 @@
 
                 <% end %>
                 <div class="card-body">
-                
-                <%= octicon "heart", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
-likes 
+
+                    <% if current_user.voted_for?(act.trackable)%>
+                             <%= link_to unlike_user_post_path(act.owner.id, act.trackable.id) do%>
+                                <%= octicon "heart", :fill => "red",:height => 32,  :class => "right left", :"aria-label" => "hi" %> <%= act.trackable.get_likes.size %>
+            
+                                <% end %>
+
+                    <% else %>
+                        <%= link_to like_user_post_path(act.owner.id, act.trackable.id) do%>
+                            <%= octicon "heart", :height => 32,  :class => "right left", :"aria-label" => "hi" %> <%= act.trackable.get_likes.size %>
+            
+                         <% end %>
+
+                    <% end %>
+               
                 </div>
                    
             </div>

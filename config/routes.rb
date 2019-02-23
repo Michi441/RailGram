@@ -9,7 +9,12 @@ Rails.application.routes.draw do
       get :follow
       get :unfollow
     end
-    resources :posts
+    resources :posts do
+      member do
+        get :like
+        get :unlike
+      end
+    end
     resources :newsfeeds, only: [:index]
   end
 
