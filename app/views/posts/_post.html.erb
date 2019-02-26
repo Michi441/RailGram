@@ -32,8 +32,9 @@
 
 
                         <% end %>   
-
-                        <%= link_to "Delete", user_post_path(post.user, post), method: :delete, data: { confirm: "Are you sure?"}%>     
+                        <% if current_user.id == post.user.id %>
+                        <%= link_to "Delete", user_post_path(post.user, post), class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: "Are you sure?"}%> 
+                        <% end %>    
                         </div>
 
                         <p><b><%= post.description%></b></p>

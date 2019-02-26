@@ -1,3 +1,14 @@
+<div class="container">
+    <div class="d-flex justify-content-center flex-row">
+
+        <div class="col-lg-5 col-md-8 col-sm-8">
+            <div class="card p-3 text-center">
+
+            <div class="card-header bg-white">
+              Upload an Image
+            </div>
+                <div class="card-body">
+
 <%= form_for ([@user, @post]) do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -11,21 +22,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, class: 'form-control'  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control'  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Upload Image", class: 'btn btn-outline-success btn-block'%>
   </div>
 <% end %>
+<br><br>
+
+<%= link_to 'Back', user_path(@user) %>
+
+
+                </div>
+              </div>
+            </div>
+            </div>
+
+      </div>
