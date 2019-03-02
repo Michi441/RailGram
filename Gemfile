@@ -29,7 +29,8 @@ gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'public_activity'
 gem 'octicons_helper'
 gem 'acts_as_votable', '~> 0.12.0'
-
+gem 'rails-jquery-autocomplete'
+gem 'jquery-ui-rails'
 
 
 # Use Redis adapter to run Action Cable in production

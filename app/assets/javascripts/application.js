@@ -13,6 +13,10 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery3
+//= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui/widgets/autocomplete
+//= require autocomplete-rails
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
