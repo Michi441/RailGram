@@ -1,8 +1,24 @@
 class UsersController < ApplicationController
+  autocomplete :user, :username
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+
+
+    if params[:search]
+      @user = User.where('username LIKE ?', "%#{params[:search]}").order('username')
+        if @user.exists?
+          redirect_to user_path(@user.ids)
+        else
+          flash[:alert] = "The User #{params[:search]} was not found"
+          @user = User.find(params[:id])
+          redirect_to @user
+        end
+
+    end
   end
+
+
 
 
 

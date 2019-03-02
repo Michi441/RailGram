@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show] do
+    get :autocomplete_user_username, :on => :collection
     member do
       get :follow
       get :unfollow
