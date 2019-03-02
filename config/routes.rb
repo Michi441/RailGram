@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'landing/signin'
 
 
-  resources :users, only: [:show] do
+  resources :users, only: [:index, :show] do
     get :autocomplete_user_username, :on => :collection
     member do
       get :follow

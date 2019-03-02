@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   autocomplete :user, :username
-  def show
-    @user = User.find(params[:id])
-    @posts = @user.posts
 
 
+  def index
     if params[:search]
       @user = User.where('username LIKE ?', "%#{params[:search]}").order('username')
         if @user.exists?
@@ -16,6 +14,13 @@ class UsersController < ApplicationController
         end
 
     end
+  end
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts
+
+
+   
   end
 
 
